@@ -23,14 +23,14 @@ public class HomeController {
 	@GetMapping("/index")
 	public String getIndex(Model model) {
 		LocalDate nowDate = LocalDate.now();
-		model.addAttribute(nowDate);
+		model.addAttribute("nowDate",nowDate);
 		return "index";
 	}
 	
 	@GetMapping("/index2")
 	public String getIndex2(Model model) {
 		LocalDate nowDate = LocalDate.now();
-		model.addAttribute(nowDate);
+		model.addAttribute("nowDate",nowDate);
 		return "index2";
 	}
 
