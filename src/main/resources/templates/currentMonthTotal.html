@@ -17,21 +17,35 @@
 <br>
 <h3>今月収入</h3>
 		<table class="table" >
-			<tr>
-				<th>日付</th>
-				<th>金額</th>
-				<th>メモ</th>
-				<td></td>
-			</tr>
+			<thead>
+				<tr>
+					<th>日付</th>
+					<th>金額</th>
+					<th>メモ</th>
+				</tr>
+			</thead>
+			<tbody th:each="income :${incomelist}" th:object="${income}">
+			 	<tr>
+			 		<td th:text="*{datetime}">日付<td>
+			 		
+			 	</tr>
+			</tbody>
 		</table>
 <h3>今月支出</h3>
 		<table class="table" >
-			<tr>
-				<th>日付</th>
-				<th>金額</th>
-				<th>メモ</th>
-				<td></td>
-			</tr>
+			<thead>
+				<tr>
+					<th>日付</th>
+					<th>金額</th>
+					<th>メモ</th>
+				</tr>
+			</thead>
+			<tbody th:each="spending :${spendinglist}" th:object="${spending}">
+			 	<tr>
+			 		<td th:text="*{datetime}">日付<td>
+			 		
+			 	</tr>
+			</tbody>
 		</table>
 </div>
 	
