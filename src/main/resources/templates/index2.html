@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/common}">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>家計簿app</title>
 </head>
 <body>
-支出収入登録画面（登録後）
+<div layout:fragment="contents">
+<h2>支出収入登録画面</h2>
+<h4>データが保存されました</h4>
+<h2 th:text="${#temporals.format(nowDate, 'M/dd')}"></h2>
+<a th:href="@{|/newIncome|}"><button type="button" class="btn btn-info">収入登録</button></a>
+<a th:href="@{|/newSpending|}"><button type="button" class="btn btn-danger">支出登録</button></a>
+</div>
 </body>
 </html>
