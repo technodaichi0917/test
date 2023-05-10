@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/common}">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>家計簿app</title>
 </head>
 <body>
-新規収入登録画面
+<div layout:fragment="contents">
+
+<h2>新規収入登録</h2>
+<h2 th:text="${#temporals.format(nowDate, 'MM/dd')}"></h2>
+<form th:action = "@{/newIncome}" method = "post" th:object = "${income}">
+	
+	<div>
+		日付<br>
+		<input type="date" th:name="datetime" th:field="*{datetime}" class="form-control">
+	</div>
+	<div>
+		収入金額<br>
+		<input type = "number" th:field = "*{incomeAmount}"class = "form-control">
+		
+	</div>
+	<div>
+		メモ<br>
+		<input type = "text" size = "18" th:field ="*{memo}" class = "form-control">
+		
+	</div>
+	
+	<div>
+		<input type = "submit" value = "登録" class = "btn btn-primary">
+	</div>
+</form>
+
+
+</div>
 </body>
 </html>
