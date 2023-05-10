@@ -35,12 +35,12 @@ public class IncomeController {
         return "newIncome";
     }
 	
-//	@PostMapping("/newIncome")
-//	public String createIncome(Income income) {
-//		
-//		incomeRepository.save(income);
-//		return "index2";
-//	}
+	@PostMapping("/newIncome")
+	public String createIncome(Income income) {
+		
+		incomeRepository.save(income);
+		return "index2";
+	}
 	
 	//フォームから入力された収入変更情報をincomeServiceへ送る。
 	@GetMapping("/editIncome")
@@ -54,7 +54,7 @@ public class IncomeController {
 //	
 //		return "currentMonth";
 //	}
-//	
+	
 	
 	
 	

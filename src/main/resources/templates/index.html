@@ -9,10 +9,15 @@
 <body>
 <div layout:fragment="contents">
 
+<div style= "text-align:center">
 <h2>支出収入登録</h2>
+<br>
 <h2 th:text="${#temporals.format(nowDate, 'M/dd')}"></h2>
 <a th:href="@{|/newIncome|}"><button type="button" class="btn btn-info">収入登録</button></a>
+<br>
+<br>
 <a th:href="@{|/newSpending|}"><button type="button" class="btn btn-danger">支出登録</button></a>
+</div>
 
 </div>
 </body>

@@ -9,26 +9,31 @@
 <body>
 <div layout:fragment="contents">
 
-<h2>新規収入登録</h2>
-<h2 th:text="${#temporals.format(nowDate, 'MM/dd')}"></h2>
+<h2 style= "text-align:center">新規収入登録</h2>
+
+<div style="text-align:center">
+（現在の日付）<h2 th:text="${#temporals.format(nowDate, 'MM/dd')}"></h2>
+</div>
+
 <form th:action = "@{/newIncome}" method = "post" th:object = "${income}">
 	
-	<div>
+	<div style= "text-align:center">
 		日付<br>
 		<input type="date" th:name="datetime" th:field="*{datetime}" class="form-control">
 	</div>
-	<div>
+	
+	<div style= "text-align:center">
 		収入金額<br>
 		<input type = "number" th:field = "*{incomeAmount}"class = "form-control">
-		
-	</div>
-	<div>
-		メモ<br>
-		<input type = "text" size = "18" th:field ="*{memo}" class = "form-control">
-		
 	</div>
 	
-	<div>
+	<div style= "text-align:center">
+		メモ<br>
+		<input type = "text" size = "18" th:field ="*{memo}" class = "form-control">
+	</div>
+	
+	<br>
+	<div style= "text-align:center">
 		<input type = "submit" value = "登録" class = "btn btn-primary">
 	</div>
 </form>
