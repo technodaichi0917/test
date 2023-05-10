@@ -24,8 +24,8 @@ public class IncomeController {
 	@Autowired
 	private IncomeRepository incomeRepository;
 	
-//	@Autowired
-//	private IncomeService incomeService;
+	@Autowired
+	private IncomeService incomeService;
 	
 	//新規収入登録ページに遷移
 	@GetMapping("/newIncome")
@@ -43,17 +43,19 @@ public class IncomeController {
 	}
 	
 	//フォームから入力された収入変更情報をincomeServiceへ送る。
-	@GetMapping("/editIncome")
-    public String editIncome() {
+	@GetMapping("/editIncome/{incomeId}")
+    public String editIncome(@PathVariable("incomeId") Income income, Model model) {
 		
-		return "editIncome" ;
+		model.addAttribute("income", income);
+		return "editIncome";
     }
 	
-//	@PostMapping("/editIncome")
-//	public String editIncome() {
-//	
-//		return "currentMonth";
-//	}
+	@PostMapping("/editIncome/{incomeId}")
+	public String editIncome(@PathVariable("incomeId") Income income) {
+		
+		incomeService.updateIncome(income,income.getIncomeAmount(),income.getDatetime(),income.getMemo());
+		return "currentMonth";
+	}
 	
 	
 	
