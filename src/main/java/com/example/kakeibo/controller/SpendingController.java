@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.kakeibo.model.Income;
@@ -32,14 +33,14 @@ public class SpendingController {
 	//フォームから入力された新規支出登録情報を保存
 	@PostMapping("/newSpending")
 	public String createSpending(Spending spending) {
-		
 		spendingRepository.save(spending);
 		return "index2";
 	}
 	
 	//支出情報更新ページに遷移
-	@GetMapping("/editSpending")
-	public String editSpending() {
+	@GetMapping("/editSpending/{spendingId}")
+	public String editSpending(@PathVariable("spendingId") Spending spending, Model model) {
+		model.addAttribute("spending", spending);
 		return "editSpending";
 	}
 	

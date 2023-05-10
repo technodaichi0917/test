@@ -9,25 +9,25 @@
 <body>
 <div layout:fragment="contents">
 
-<h2>収入変更登録</h2>
+<h2 style= "text-align:center">収入変更登録</h2>
 
 <form th:action = "@{|/editIncome/${incomeId}|}" method = "post" th:object = "${income}">
-	<div>
+	<div style= "text-align:center">
 		日付<br>
 		<input type="date" th:name="datetime" th:field="*{datetime}" class="form-control">
 	</div>
-	<div>
+	<div style= "text-align:center">
 		収入金額<br>
 		<input type = "number" th:field = "*{incomeAmount}"class = "form-control">
 		
 	</div>
-	<div>
+	<div style= "text-align:center">
 		メモ<br>
 		<input type = "text" size = "18" th:field ="*{memo}" class = "form-control">
 		
 	</div>
-	
-	<div>
+	<br>
+	<div style= "text-align:center">
 		<input type = "submit" value = "変更" class = "btn btn-primary">
 	</div>
 </form>

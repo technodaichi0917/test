@@ -14,13 +14,44 @@
 <br>
 <h4 style="color:red">データが保存されました</h4>
 <br>
+（現在の日付）
 <h2 th:text="${#temporals.format(nowDate, 'MM/dd')}"></h2>
+<br>
+<p>どちらを登録しますか？収入か支出を選択してください。</p>
+<p>変更がある場合は「一覧」を選択し編集してください。</p>
 <a th:href="@{|/newIncome|}"><button type="button" class="btn btn-info">収入登録</button></a>
 <br>
 <br>
 <a th:href="@{|/newSpending|}"><button type="button" class="btn btn-danger">支出登録</button></a>
+<br>
+<br>
+
+<div class="spinner-grow text-primary" role="status">
+  <span class="visually-hidden">YAMADA</span>
+</div>
+<div class="spinner-grow text-secondary" role="status">
+  <span class="visually-hidden">YAMADA</span>
+</div>
+<div class="spinner-grow text-success" role="status">
+  <span class="visually-hidden">YAMADA</span>
+</div>
+<div class="spinner-grow text-danger" role="status">
+  <span class="visually-hidden">YAMADA</span>
+</div>
+<div class="spinner-grow text-warning" role="status">
+  <span class="visually-hidden">YAMADA</span>
+</div>
+<div class="spinner-grow text-info" role="status">
+  <span class="visually-hidden">YAMADA</span>
+</div>
+<div class="spinner-grow text-light" role="status">
+  <span class="visually-hidden">YAMADA</span>
+</div>
+<div class="spinner-grow text-dark" role="status">
+  <span class="visually-hidden">YAMADA</span>
 </div>
 
+</div>
 </div>
 </body>
 </html>
