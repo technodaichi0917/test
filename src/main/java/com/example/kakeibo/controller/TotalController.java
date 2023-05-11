@@ -35,32 +35,15 @@ public class TotalController {
 		//incomelistで全件取得
 		List<Income> incomelist = incomeService.getCurrentIncomeList();
 		List<Spending> spendinglist = spendingService.getCurrentSpendingList();
-		int incomeTotal = calculateService.getCurrentIncomeTotal();
-		int spendingTotal = calculateService.getCurrentSpendingTotal();
-		int monthTotal = calculateService.getCurrentMonthTotal();
+		int currentIncomeTotal = calculateService.getCurrentIncomeTotal();
+		int currentSpendingTotal = calculateService.getCurrentSpendingTotal();
+		int currentMonthTotal = calculateService.getCurrentMonthTotal();
 		model.addAttribute("incomelist", incomelist);
 		model.addAttribute("spendinglist", spendinglist);
-		model.addAttribute("incomeTotal", incomeTotal);
-		model.addAttribute("spendingTotal", spendingTotal);
-		model.addAttribute("monthTotal", monthTotal);
+		model.addAttribute("currentIncomeTotal", currentIncomeTotal);
+		model.addAttribute("currentSpendingTotal", currentSpendingTotal);
+		model.addAttribute("currentMonthTotal", currentMonthTotal);
 		return "currentMonthTotal";
 	}
 	
-	@GetMapping("/serchMonthTotal")
-	public String getOtherMonthTotal(Model model, @RequestParam int year, @RequestParam int month) {
-//		
-//		List<Income> incomelist = incomeService.getIncomeList(year,month);
-//	    List<Spending> spendinglist = spendingService.getSpendingList(year,month);
-//	    
-//	    int incomeTotal = calculateService.getIncomeTotal(year,month);
-//	    int spendingTotal = calculateService.getSpendingTotal(year,month);
-//	    int monthTotal = calculateService.getMonthTotal();
-//	    model.addAttribute("incomelist", incomelist);
-//	    model.addAttribute("spendinglist", spendinglist);
-//	    model.addAttribute("incomeTotal", incomeTotal);
-//	    model.addAttribute("spendingTotal", spendingTotal);
-//	    model.addAttribute("monthTotal", monthTotal);
-		
-		return "serchMonthTotal";
-	}
 }
