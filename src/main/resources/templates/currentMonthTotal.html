@@ -14,7 +14,9 @@
 <h2>今月収支一覧</h2>
 <br>
 <h3>収支合計（収入ー支出）</h3>
-<h3 th:text="${currentMonthTotal}" style="color:blue"></h3>
+
+<h3 th:text="${currentMonthTotal} + '円' " style="color:blue"></h3>
+
 </div>
 <br>
 
@@ -22,7 +24,7 @@
 <h3>今月の収入</h3>
 <br>
 <h4>収入合計</h4>
-<h3 th:text="${currentIncomeTotal}"  style="color:blue"></h3>
+<h3 th:text="${currentIncomeTotal} + '円' "  style="color:blue"></h3>
 <br>
 
 <table class="table" >
@@ -39,7 +41,7 @@
 <tbody th:each="income:${incomelist}" th:object="${income}">
 	<tr>
 	<td th:text="*{datetime}"></td>
-	<td th:text="*{incomeAmount}"></td>
+	<td th:text="*{incomeAmount} + '円' "></td>
 	<td th:text="*{memo}"></td>
 	<td>
 		<a th:href="@{|/editIncome/*{id}|}">変更</a>
@@ -53,7 +55,7 @@
 <h3>今月の支出</h3>
 <br>
 <h4>支出合計</h4>
-<h3 th:text="${currentSpendingTotal}" style="color:blue"></h3>
+<h3 th:text="${currentSpendingTotal} + '円' " style="color:blue"></h3>
 <br>
 
 <table class="table" >
@@ -70,7 +72,7 @@
 <tbody th:each="spending:${spendinglist}" th:object="${spending}">
 	<tr>
 	<td th:text="*{datetime}"></td>
-	<td th:text="*{spendingAmount}"></td>
+	<td th:text="*{spendingAmount} + '円' "></td>
 	<td th:text="*{memo}"></td>
 	<td>
 		<a th:href="@{|/editSpending/*{id}|}">変更</a>
