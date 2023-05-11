@@ -22,11 +22,17 @@
 					<th>日付</th>
 					<th>金額</th>
 					<th>メモ</th>
+					<th>変更</th>
 				</tr>
 			</thead>
 			<tbody th:each="income :${incomelist}" th:object="${income}">
 			 	<tr>
-			 		<td th:text="*{datetime}">日付<td>
+			 		<td th:text="*{datetime}">日付</td>
+			 		<td th:text="*{incomeAmount}">収入金額</td>
+			 		<td th:text="*{memo}">メモ</td>
+			 		<td>
+			 			<a th:href="@{|/editIncome/*{id}|}">変更</a>
+					</td>
 			 		
 			 	</tr>
 			</tbody>
@@ -38,12 +44,17 @@
 					<th>日付</th>
 					<th>金額</th>
 					<th>メモ</th>
+					<th>変更</th>
 				</tr>
 			</thead>
 			<tbody th:each="spending :${spendinglist}" th:object="${spending}">
 			 	<tr>
-			 		<td th:text="*{datetime}">日付<td>
-			 		
+			 		<td th:text="*{datetime}">日付</td>
+			 		<td th:text="*{spendingAmount}">支出金額</td>
+			 		<td th:text="*{memo}">メモ</td>
+			 		<td>
+			 			<a th:href="@{|/editSpending/*{id}|}">変更</a>
+					</td>
 			 	</tr>
 			</tbody>
 		</table>

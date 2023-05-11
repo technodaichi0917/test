@@ -22,7 +22,8 @@ public class IncomeService {
 		LocalDate now = LocalDate.now();
 		LocalDate start = now.withDayOfMonth(1);
 		LocalDate end = now.withDayOfMonth(now.lengthOfMonth());
-		return incomeRepository.findAllByDatetimeBetween(start,end);
+		List<Income> incomelist = incomeRepository.findAllByDatetimeBetween(start,end);
+		return incomelist;
 	}
 	
 	public List<Income> getIncomeList(int year, int month){
@@ -31,12 +32,8 @@ public class IncomeService {
 		return incomeRepository.findAllByDatetimeBetween(start,end);
 	}
 	
-	@Transactional
-	public void updateIncome(Integer id, Integer incomeAmount, LocalDate datetime, String memo) {
-		
-		Income income = incomeRepository.findById(id).get();
+	public void updateIncome(Income income) {
 		incomeRepository.save(income);
-		
 	}
 }
 
