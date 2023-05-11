@@ -12,7 +12,8 @@
 <div style="text-align:center">
 <h2>今月収支一覧</h2>
 <br>
-<h4>収支合計　＝　○○円</h4>
+<h4>収支合計</h4>
+<h4 th:text="${currentMonthTotal}"></h4>
 </div>
 
 <br>
@@ -23,7 +24,8 @@
 
 <div style="text-align:center">
 <h3>今月収入</h3>
-<h4>収入合計　＝　○○円</h4>
+<h4>収入合計</h4>
+<h4 th:text="${currentIncomeTotal}"></h4>
 <br>
 
 <table class="table" >
@@ -51,7 +53,8 @@
 </table>
 
 <h3>今月支出</h3>
-<h4>支出合計　＝　○○円</h4>
+<h4>支出合計</h4>
+<h4 th:text="${currentSpendingTotal}"></h4>
 <br>
 
 <table class="table" >
