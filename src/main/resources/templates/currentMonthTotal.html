@@ -9,59 +9,76 @@
 <body>
 <div layout:fragment="contents">
 
-<h2 style= "text-align:center">今月収支一覧</h2>
+<div style="text-align:center">
+<h2>今月収支一覧</h2>
+<br>
+<h4>収支合計　＝　○○円</h4>
+</div>
 
+<br>
 <div style="text-align:center">
 <h2 th:text="${#temporals.format(nowDate, 'MM月')}"></h2>
 <br>
-<br>
-<h3>今月収入</h3>
-		<table class="table" >
-			<thead>
-				<tr>
-					<th>日付</th>
-					<th>金額</th>
-					<th>メモ</th>
-					<th>変更</th>
-				</tr>
-			</thead>
-			<tbody th:each="income :${incomelist}" th:object="${income}">
-			 	<tr>
-			 		<td th:text="*{datetime}">日付</td>
-			 		<td th:text="*{incomeAmount}">収入金額</td>
-			 		<td th:text="*{memo}">メモ</td>
-			 		<td>
-			 			<a th:href="@{|/editIncome/*{id}|}">変更</a>
-					</td>
-			 		
-			 	</tr>
-			</tbody>
-		</table>
-<h3>今月支出</h3>
-		<table class="table" >
-			<thead>
-				<tr>
-					<th>日付</th>
-					<th>金額</th>
-					<th>メモ</th>
-					<th>変更</th>
-				</tr>
-			</thead>
-			<tbody th:each="spending :${spendinglist}" th:object="${spending}">
-			 	<tr>
-			 		<td th:text="*{datetime}">日付</td>
-			 		<td th:text="*{spendingAmount}">支出金額</td>
-			 		<td th:text="*{memo}">メモ</td>
-			 		<td>
-			 			<a th:href="@{|/editSpending/*{id}|}">変更</a>
-					</td>
-			 	</tr>
-			</tbody>
-		</table>
 </div>
-	
 
+<div style="text-align:center">
+<h3>今月収入</h3>
+<h4>収入合計　＝　○○円</h4>
+<br>
 
+<table class="table" >
+
+<thead>
+	<tr>
+	<th scope="col">日付</th>
+	<th scope="col">金額</th>
+	<th scope="col">メモ</th>
+	<th scope="col">#</th>
+	</tr>
+</thead>
+
+<tbody th:each="income:${incomelist}" th:object="${income}">
+	<tr>
+	<td th:text="*{datetime}"></td>
+	<td th:text="*{incomeAmount}"></td>
+	<td th:text="*{memo}"></td>
+	<td>
+		<a th:href="@{|/editIncome/*{id}|}">変更</a>
+	</td>		
+	</tr>
+</tbody>
+
+</table>
+
+<h3>今月支出</h3>
+<h4>支出合計　＝　○○円</h4>
+<br>
+
+<table class="table" >
+
+<thead>
+	<tr>
+	<th scope="col">日付</th>
+	<th scope="col">金額</th>
+	<th scope="col">メモ</th>
+	<th scope="col">#</th>
+	</tr>
+</thead>
+
+<tbody th:each="spending:${spendinglist}" th:object="${spending}">
+	<tr>
+	<td th:text="*{datetime}"></td>
+	<td th:text="*{spendingAmount}"></td>
+	<td th:text="*{memo}"></td>
+	<td>
+		<a th:href="@{|/editSpending/*{id}|}">変更</a>
+	</td>		
+	</tr>
+</tbody>
+
+</table>
+
+</div>
 </div>
 </body>
 </html>
