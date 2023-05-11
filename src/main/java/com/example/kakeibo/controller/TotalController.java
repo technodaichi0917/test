@@ -32,6 +32,7 @@ public class TotalController {
 	public String getCurrentMonthTotal(Model model) {
 		LocalDate nowDate = LocalDate.now();
 		model.addAttribute("nowDate", nowDate);
+		//incomelistで全件取得
 		List<Income> incomelist = incomeService.getCurrentIncomeList();
 		List<Spending> spendinglist = spendingService.getCurrentSpendingList();
 		int incomeTotal = calculateService.getCurrentIncomeTotal();
