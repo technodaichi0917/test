@@ -10,22 +10,19 @@
 <div layout:fragment="contents">
 
 <div style="text-align:center">
+<h2 th:text="${#temporals.format(nowDate, 'MM月')}"></h2>
 <h2>今月収支一覧</h2>
 <br>
-<h4>収支合計</h4>
-<h4 th:text="${currentMonthTotal}"></h4>
+<h3>収支合計（収入ー支出）</h3>
+<h3 th:text="${currentMonthTotal}" style="color:blue"></h3>
 </div>
-
 <br>
-<div style="text-align:center">
-<h2 th:text="${#temporals.format(nowDate, 'MM月')}"></h2>
-<br>
-</div>
 
 <div style="text-align:center">
-<h3>今月収入</h3>
+<h3>今月の収入</h3>
+<br>
 <h4>収入合計</h4>
-<h4 th:text="${currentIncomeTotal}"></h4>
+<h3 th:text="${currentIncomeTotal}"  style="color:blue"></h3>
 <br>
 
 <table class="table" >
@@ -51,10 +48,12 @@
 </tbody>
 
 </table>
+<br>
 
-<h3>今月支出</h3>
+<h3>今月の支出</h3>
+<br>
 <h4>支出合計</h4>
-<h4 th:text="${currentSpendingTotal}"></h4>
+<h3 th:text="${currentSpendingTotal}" style="color:blue"></h3>
 <br>
 
 <table class="table" >
