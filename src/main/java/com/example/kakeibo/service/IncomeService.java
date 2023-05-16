@@ -26,7 +26,7 @@ public class IncomeService {
 		return incomelist;
 	}
 	
-	public List<Income> getIncomeList(int year, int month){
+	public List<Income> getOtherIncomeList(int year, int month){
 		LocalDate start = LocalDate.of(year, month,1);
 		LocalDate end = start.plusMonths(1).minusDays(1);
 		return incomeRepository.findAllByDatetimeBetween(start,end);

@@ -14,10 +14,13 @@ import com.example.kakeibo.repository.SpendingRepository;
 @Service
 public class CalculateService {
 	
-
 	private int currentIncomeTotal;
 	private int currentSpendingTotal;
 	private int currentMonthTotal;
+	
+	private int otherIncomeTotal;
+	private int otherSpendingTotal;
+	private int otherMonthTotal;
 	
 	@Autowired
 	IncomeRepository incomeRepository;
@@ -63,6 +66,33 @@ public class CalculateService {
 		
 	}
 	
+	public int getOtherIncomeTotal(int year, int month){
+		LocalDate start = LocalDate.of(year, month,1);
+		LocalDate end = start.plusMonths(1).minusDays(1);
+		List<Income> list = incomeRepository.findAllByDatetimeBetween(start,end);
+		otherIncomeTotal = 0;
+		for (Income income:list) {
+			otherIncomeTotal+= income.getIncomeAmount();
+		}
+		return otherIncomeTotal;
+	}
+	
+	public int getOtherSpendingTotal(int year, int month){
+		LocalDate start = LocalDate.of(year, month,1);
+		LocalDate end = start.plusMonths(1).minusDays(1);
+		List<Spending> list = spendingRepository.findAllByDatetimeBetween(start,end);
+		otherSpendingTotal = 0;
+		for (Spending spending:list) {
+			otherSpendingTotal+= spending.getSpendingAmount();
+		}
+		return otherSpendingTotal;
+	}
+	
+	public int getOtherMonthTotal(){
+		otherMonthTotal = 0;
+		otherMonthTotal = currentIncomeTotal - otherSpendingTotal;
+		return otherMonthTotal; 
+	}
 	
 	
 }

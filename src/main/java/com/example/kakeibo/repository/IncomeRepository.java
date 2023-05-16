@@ -9,4 +9,5 @@ import com.example.kakeibo.model.Income;
 
 public interface IncomeRepository extends JpaRepository<Income, Integer>{
 	List<Income> findAllByDatetimeBetween(LocalDate start, LocalDate end);
+
 }

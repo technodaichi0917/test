@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.kakeibo.model.Income;
@@ -44,6 +45,36 @@ public class TotalController {
 		model.addAttribute("currentSpendingTotal", currentSpendingTotal);
 		model.addAttribute("currentMonthTotal", currentMonthTotal);
 		return "currentMonthTotal";
+	}
+	
+	@PostMapping("/serchMonthTotal")
+	public String postTotal(@RequestParam int year, @RequestParam int month, Model model) {
+		 model.addAttribute("year", year);
+		 model.addAttribute("month", month);
+		 return "serchMonthTotal";
+	}
+	
+	
+	@GetMapping("/serchMonthTotal")
+	public String getTotal(Model model, @RequestParam int year, @RequestParam int month) {
+		
+		
+		List<Income> incomelist = incomeService.getOtherIncomeList(year,month);
+	    List<Spending> spendinglist = spendingService.getOtherSpendingList(year,month);
+	    
+	    int otherIncomeTotal = calculateService.getOtherIncomeTotal(year,month);
+	    int otherSpendingTotal = calculateService.getOtherSpendingTotal(year,month);
+	    int otherMonthTotal = calculateService.getOtherMonthTotal();
+	    
+	    model.addAttribute("year", year);
+	    model.addAttribute("month", month);
+	    model.addAttribute("incomelist", incomelist);
+	    model.addAttribute("spendinglist", spendinglist);
+	    model.addAttribute("otherIncomeTotal", otherIncomeTotal);
+	    model.addAttribute("otherSpendingTotal", otherSpendingTotal);
+	    model.addAttribute("otherMonthTotal", otherMonthTotal);
+		
+		return "redirect:/serchMonthTotal";
 	}
 	
 }
